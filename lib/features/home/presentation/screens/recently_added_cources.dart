@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_share/flutter_share.dart';
 import 'package:get/get.dart';
 import 'package:kursol/features/home/presentation/screens/recent_added_cource_detail.dart';
+import 'package:share_plus/share_plus.dart';
 import '../../../../models/recently_added.dart';
 import '../../../../utils/screen_size.dart';
 import '../../../../utils/slider_page_data_model.dart';
@@ -16,11 +16,10 @@ class RecentlyAdded extends StatefulWidget {
 
 class _RecentlyAddedState extends State<RecentlyAdded> {
   Future<void> share() async {
-    await FlutterShare.share(
-        title: 'Example share',
-        text: 'Example share text',
-        linkUrl: 'https://flutter.dev/',
-        chooserTitle: 'Example Chooser Title');
+    await Share.share(
+      'Example share https://flutter.dev/',
+      subject: 'Example share text',
+    );
   }
 
   List<Recent> recentcource = [];
